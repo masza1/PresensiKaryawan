@@ -11,7 +11,13 @@ class Attendance extends Model
 
     protected $guarded = [];
 
+    protected $with = ['employee'];
+
     public function salaries(){
-        return $this->hasMany(Salary::class)
+        return $this->hasMany(Salary::class);
+    }
+
+    public function employee() {
+        return $this->belongsTo(Employee::class);
     }
 }

@@ -15,18 +15,16 @@ class TablerSeeder extends Seeder
      */
     public function run()
     {
-        $positions = [
-            ['position_name' =>'Staff Junior Web Programmer', 'basic_salary' => 4300000, 'allowance' => 150000],
-            ['position_name' =>'Staff Senior Web Programmer', 'basic_salary' => 5800000, 'allowance' => 200000],
-            ['position_name' =>'Staff IT', 'basic_salary' => 4850000, 'allowance' => 150000]
-        ];
 
-        foreach ($positions as $value) {
-            \App\Models\Position::create($value);
+        $users = [
+            ['name' => 'Staff HRD', 'email' => 'staff@gmail.com', 'email_verified_at' => now(), 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'remember_token' => \Str::random(10)],
+            ['name' => 'Supervisor HRD', 'email' => 'supervisor@gmail.com', 'email_verified_at' => now(), 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'remember_token' => \Str::random(10)]
+        ];
+        
+        foreach ($users as $value) {
+            \App\Models\User::create($value);
         }
         
-        User::factory(2)->create();
-        Employee::factory(10)->create();
-
+        Employee::factory(3)->create();
     }
 }
